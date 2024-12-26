@@ -1,0 +1,90 @@
+// breakpoints
+$md: 768px;
+
+.main {
+  @apply flex min-h-screen justify-center;
+
+  .container {
+    @apply flex flex-col items-center;
+    width: 40rem;
+    @media (width < $md) {
+      width: 90%;
+    }
+
+    .logo {
+      @apply mt-16 w-14 sm:w-auto;
+    }
+
+    .title {
+      @apply mt-8 text-2xl text-gray sm:text-5xl;
+      font-weight: 200;
+
+      .highlight {
+        @apply font-semibold text-very-dark-blue;
+      }
+    }
+
+    .subTitle {
+      @apply mt-4 text-sm text-very-dark-blue sm:text-lg;
+      font-weight: 250;
+    }
+
+    .form {
+      @apply mt-8 flex w-4/5 flex-col items-start gap-x-3 gap-y-2 sm:w-full sm:flex-row;
+
+      .inputContainer {
+        @apply w-full flex-grow sm:w-auto;
+
+        input {
+          @apply w-full rounded-full border border-gray/40 px-4 py-2 text-sm outline-none transition duration-300 focus:border-gray sm:px-6 sm:py-3 sm:text-base;
+
+          &::placeholder {
+            @apply text-gray/50;
+          }
+        }
+
+        .errorText {
+          @apply invisible block text-center text-xs italic text-light-red opacity-0 transition duration-300 sm:ml-6 sm:mt-2 sm:min-h-4 sm:text-start;
+        }
+      }
+
+      button {
+        @apply w-full rounded-full bg-blue px-14 py-2 text-sm font-medium text-white shadow-lg transition duration-300 focus:translate-y-1 hover:enabled:bg-blue/80 hover:enabled:shadow-xl disabled:bg-gray sm:w-auto sm:py-3 sm:text-base;
+      }
+
+      &.error {
+        .inputContainer input {
+          @apply border-light-red;
+        }
+
+        .errorText {
+          @apply visible mb-4 mt-2 opacity-100 sm:mb-0;
+        }
+      }
+    }
+
+    .illustration {
+      @apply mt-12;
+    }
+
+    .socials {
+      @apply mt-16 flex items-center gap-x-3;
+
+      li a {
+        @apply flex h-7 w-7 items-center justify-center rounded-full border border-gray/30 transition duration-300;
+
+        &:hover {
+          @apply bg-blue;
+
+          img {
+            filter: grayscale(1) brightness(10);
+          }
+        }
+      }
+    }
+
+    .copyright {
+      @apply mb-12 mt-5 text-xs text-gray;
+    }
+  }
+}
